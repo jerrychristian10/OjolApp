@@ -51,8 +51,9 @@ const Section = ({children, title}): Node => {
     </View>
   );
 };
-
-const App: () => Node = () => {
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+const App: () => React$Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -60,11 +61,13 @@ const App: () => Node = () => {
   };
 
   return (
+    <NavigationContainer>
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
+        <Text>Hello O-Jol App</Text> 
         <Header />
         <View
           style={{
@@ -87,6 +90,7 @@ const App: () => Node = () => {
         </View>
       </ScrollView>
     </SafeAreaView>
+    </NavigationContainer>
   );
 };
 
